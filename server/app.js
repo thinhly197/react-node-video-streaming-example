@@ -25,9 +25,13 @@ const videos = [
   },
 ];
 
-const app = express();
+const app = express(),
+  bodyParser = require("body-parser");
+port = 4000;
 
-app.use(cors());
+// app.use(cors());
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, "./build")));
 
 app.get("/videos", (req, res) => res.json(videos));
 
@@ -74,6 +78,10 @@ app.get("/video/:id/poster", (req, res) => {
     .then((thumb) => res.sendFile(thumb));
 });
 
+app.get("/video/:id/caption", (req, res) =>
+  res.sendFile("assets/captions/sample.vtt", { root: __dirname })
+);
+
 app.listen(4000, () => {
-  console.log("Listening on port 4000!");
+  console.log(`Listening on port :: ${port}`);
 });

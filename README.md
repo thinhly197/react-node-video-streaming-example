@@ -17,3 +17,7 @@ $ yarn start
 Download -- https://www.gyan.dev/ffmpeg/builds/
 
 Install example for Windows -- http://blog.gregzaal.com/how-to-install-ffmpeg-on-windows/
+
+## Source
+
+https://www.linode.com/docs/guides/build-react-video-streaming-app/

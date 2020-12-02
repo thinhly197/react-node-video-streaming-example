@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import Header from "./Header";
+import Footer from "./Footer";
+
 export default class Home extends Component {
   constructor() {
     super();
@@ -11,7 +14,7 @@ export default class Home extends Component {
 
   async componentDidMount() {
     try {
-      const response = await fetch("http://localhost:4000/videos");
+      const response = await fetch("/videos");
       const data = await response.json();
       this.setState({ videos: [...data] });
     } catch (error) {
@@ -22,6 +25,7 @@ export default class Home extends Component {
   render() {
     return (
       <div className="App App-header">
+        <Header />
         <div className="container">
           <div className="row">
             {this.state.videos.map((video) => (
@@ -42,6 +46,7 @@ export default class Home extends Component {
             ))}
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

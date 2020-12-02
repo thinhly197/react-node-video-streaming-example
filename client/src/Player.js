@@ -10,9 +10,7 @@ export default class Player extends Component {
   }
   async componentDidMount() {
     try {
-      const res = await fetch(
-        `http://localhost:4000/video/${this.state.videoId}/data`
-      );
+      const res = await fetch(`/video/${this.state.videoId}/data`);
       const data = await res.json();
       this.setState({ videoData: data });
     } catch (error) {
@@ -24,11 +22,21 @@ export default class Player extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <video controls muted autoPlay>
+          {/* We’ve added crossOrigin="anonymous" to the video element; 
+          otherwise, the request for captions will fail.  */}
+          <video controls muted autoPlay crossOrigin="anonymous">
             <source
-              src={`http://localhost:4000/video/${this.state.videoId}`}
+              src={`/video/${this.state.videoId}`}
               type="video/mp4"
             ></source>
+
+            <track
+              label="English"
+              kind="captions"
+              srcLang="en"
+              src={`/video/${this.state.videoId}/caption`}
+              default
+            ></track>
           </video>
           <h1>{this.state.videoData.name}</h1>
         </header>
