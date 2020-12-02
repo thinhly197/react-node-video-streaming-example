@@ -8,9 +8,9 @@ $ yarn dev
 
 ## Setup and Start React Application
 
-cd client
-yarn install
-yarn start
+$ cd client
+$ yarn install
+$ yarn start
 
 ## Install FFmpeg for Video Streaming Server
 
