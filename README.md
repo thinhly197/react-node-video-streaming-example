@@ -2,9 +2,9 @@
 
 ## Setup and Start Node Server
 
-cd server
-yarn install
-yarn dev
+$ cd server
+$ yarn install
+$ yarn dev
 
 ## Setup and Start React Application
 
